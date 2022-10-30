@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="drawTriangle.css">
+    </head>
+
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+varying vec4 fColor;
+uniform float theta;
+
+void
+main()
+{
+    gl_Position = vPosition;
+    fColor = vColor;
+    gl_PointSize = 10.0;
+    float s = sin( theta );
+    float c = cos( theta );
+
+
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="drawTriangle.js"></script>
+
+<body>
+    <canvas id="gl-canvas" width="512" height="512">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+    <div class="forFlex">
+        <div class="range_block">
+            <div id="range_description">삼각형 크기</div>
+            <span>한변의 길이: </span>
+            <span id="range_value">0.34</span>
+            <input type="range" id="slide" min="0" max="100" value="20">
+        </div>
+        <div class="degree_block">
+            <div id="degree_description">삼각형 각도</div>
+            <span>각도: </span>
+            <span id="degree_value">0</span><br />
+            <input type="range" id="degree" min="0" max="360" value="0">
+        </div>
+        <div class="select_block">
+            <div>삼각형 색깔 : 왼쪽 밑 - 오른쪽 밑 - 중간 색 선택</div>
+            <select id="color_select1">
+                <option value="0">black</option>
+                <option value="1">red</option>
+                <option value="2">yellow</option>
+                <option value="3">green</option>
+                <option value="4">blue</option>
+                <option value="5">magenta</option>
+                <option value="6">cyan</option>
+            </select>
+            <select id="color_select2">
+                <option value="0">black</option>
+                <option value="1">red</option>
+                <option value="2">yellow</option>
+                <option value="3">green</option>
+                <option value="4">blue</option>
+                <option value="5">magenta</option>
+                <option value="6">cyan</option>
+            </select>
+            <select id="color_select3">
+                <option value="0">black</option>
+                <option value="1">red</option>
+                <option value="2">yellow</option>
+                <option value="3">green</option>
+                <option value="4">blue</option>
+                <option value="5">magenta</option>
+                <option value="6">cyan</option>
+            </select>
+        </div>
+    </div>
+
+</body>
+</html>

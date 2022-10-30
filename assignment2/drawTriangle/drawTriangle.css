@@ -1,0 +1,28 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#slide {
+  display: block;
+}
+
+.range_block, .select_block, .degree_block {
+  display: inline-block;
+}
+
+#color_select {
+  width: 100px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.forFlex {
+  display: flex;
+  align-items: baseline;
+
+}
+
+select {
+  display: block;
+}
