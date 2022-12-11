@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "assignment3",
+			"path": "."
+		},
+		{
+			"name": "assignment",
+			"path": "../assignment"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "assignment"
+	}
+}
