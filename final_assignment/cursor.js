@@ -241,28 +241,11 @@ window.onload = function init() {
    //  document.getElementById("Button2").onclick = function(){near *= 0.9; far *= 0.9;};
    //  document.getElementById("Button3").onclick = function(){radius *= 2.0;};
    //  document.getElementById("Button4").onclick = function(){radius *= 0.5;};
-    document.getElementById("Button5").onclick = function(){p_theta += dr;};
-    document.getElementById("Button6").onclick = function(){p_theta -= dr;};
-    document.getElementById("Button7").onclick = function(){phi += dr;};
-    document.getElementById("Button8").onclick = function(){phi -= dr;};
     var ambientProduct = mult(lightAmbient, materialAmbient);
     var diffuseProduct = mult(lightDiffuse, materialDiffuse);
     var specularProduct = mult(lightSpecular, materialSpecular);
 
-   //  document.getElementById("ButtonX").onclick = function(){axis = xAxis;};
-   //  document.getElementById("ButtonY").onclick = function(){axis = yAxis;};
-   //  document.getElementById("ButtonZ").onclick = function(){axis = zAxis;};
-   //  document.getElementById("ButtonT").onclick = function(){flag = !flag;};
 
-   document.getElementById('rotateX').onchange = function(e) {
-      theta[xAxis] = parseInt(e.target.value)
-   }
-   document.getElementById('rotateY').onchange = function(e) {
-      theta[yAxis] = parseInt(e.target.value)
-   }
-   document.getElementById('rotateZ').onchange = function(e) {
-      theta[zAxis] = parseInt(e.target.value)
-   }
    
    gl.uniform4fv(gl.getUniformLocation(program, "ambientProduct"),
    flatten(ambientProduct));
@@ -312,7 +295,7 @@ window.onload = function init() {
       modelView = mult(modelView, rotateY(theta[yAxis]));
       modelView = mult(modelView, rotateZ(theta[zAxis]));
       // modelView = mult(modelView,translate(0.3,0.3, 0))
-      // modelView = mult(modelView, translate(xDiff * 0.2, yDiff * 0.2, -zDiff*0.2))
+      modelView = mult(modelView, translate(xDiff * 0.2, yDiff * 0.2, -zDiff*0.2))
       modelView = mult(modelView, mvMatrix)
       gl.uniformMatrix4fv( gl.getUniformLocation(program,
          "modelViewMatrix"), false, flatten(modelView) );
